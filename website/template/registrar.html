@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<style>
+  body{
+    background-color: white;
+  }
+  .centralize{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  form{
+      border-style: solid;
+      border-width: 1px black;
+      font-family: Verdana;
+      max-width: 540px;
+      color:#4a4a4a;
+  }
+
+  h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+  .nome,.senha,.cpf{
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  #senha::-webkit-outer-spin-button,#senha::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+  }
+
+  #cpf::-webkit-outer-spin-button,#senha::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+  }
+
+  #cpf,#nome,#senha{
+    width: 510px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 12px;
+  }
+
+  .botao1{
+    background-color: lightcyan; 
+    border: 1px solid darkslategray;
+    color: darkslategray;
+    padding: 0.2em 2.5em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+  .botao1:hover,.botao2:hover {
+    background-color: lightgray;
+}
+  .botao2{
+    background-color: lightcyan; 
+    border: 1px solid darkslateblue;
+    color: darkslateblue;
+    padding: 0.2em 2.5em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+  .bcentral{
+    margin-left: 31%;
+  }
+
+  .botao3 {
+    background-color: lightcyan;
+    border: 1.5px solid darkslateblue;
+    border-radius: 20px 20px 20px 20px;
+    color: #4a4a4a;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    font-size: 16px;
+    margin: auto;
+}
+
+  .botao3:hover {
+    background-color: rgb(81, 81, 81);
+    color:rgb(255, 255, 255);
+    transition: all 0.3s ease-in-out;
+}
+
+</style>
+<div class="centralize">
+  <form id="form1" method="post">
+      <h1>CRIA SUA CONTA</h1>
+      <label class="nome" for="nome">Nome completo:</label><br>
+      <input type="text" id="nome" name="nome" required><br>
+
+      <label class="cpf" for="cpf">CPF:</label><br>
+      <input required type="number_format" id="cpf" name="cpf"  pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})">
+
+      <label class="senha" for="senha">Senha:</label><br>
+      <input type="password" id="senha" name="senha" required><br>
+
+      <div class="bcentral">
+        <input class="botao1" type="submit" value="REGISTRAR">
+        <input class="botao2"type="reset" value="LIMPAR">
+      </div>  
+  </form><br> 
+</div><br>
+{% endblock %}

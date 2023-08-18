@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block tittle %}BANCO IMPACTA{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+        .site-content{
+            flex-grow: 1;
+        }
+    </style>
+</head>
+    <div class="site-content">
+    {% block conteudo %}
+    {% endblock %}
+    </div>
+</body>
+
+</html>
