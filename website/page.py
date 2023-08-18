@@ -1,7 +1,5 @@
 from flask import Blueprint, request, render_template, session
-import db
-import requests
-
+from db import db
 
 # Se comunica com o bd e puxa o conselho da api
 page = Blueprint('login', __name__, template_folder="template")
@@ -11,23 +9,17 @@ page = Blueprint('login', __name__, template_folder="template")
 def carregar():
     return render_template("registrar.html")
 
-# @page.route('/register', methods=['POST'])
-# def ver_resultado():
-#     nome = request.form.get('nome')
+@page.route('/register', methods=['POST'])
+def register():
+    nome = request.form.get('nome')
+    cpf = request.form.get('cpf')
+    senha = request.form.get('senha')
+    dados = {"nome":nome, "cpf":cpf, "senha":senha}
+    db.collection('users').document(cpf).set(dados)
+    db.collection('contas').document(cpf).set({"saldo": 0, "fatura":0})
+    return '<h1>REGISTRADO COM SUCESSO</h1>'
 
-#     select = f"SELECT Consellho from alunos WHERE Nome='{nome}'"
-#     mycursor.execute(select)
-#     tabela = mycursor.fetchone()
-    
-#     aluno_conselho = str(tabela[0])
-        
-#     conselhos = ("https://api.adviceslip.com/advice/")
-#     response = requests.get(f"{conselhos+aluno_conselho}")
 
-#     if response.status_code == 200:
-#         print("sucesso na requisição")
-#         a = response.json()
-#         b = (a['slip']['advice'])
-#         return f"Conselho do Aluno {nome} é {b}"
-#     else:
-#        return "ERRO"
+@page.route('/login', methods=['GET'])
+def carregar():
+    return render_template("login.html")
