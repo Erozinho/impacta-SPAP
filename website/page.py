@@ -18,7 +18,3 @@ def register():
     return '<h1>REGISTRADO COM SUCESSO</h1>'
 
 
-# @page.route('/login', methods=['GET'])
-# def carregar():
-#     return render_template("login.html")
-
