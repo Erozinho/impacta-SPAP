@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    {% block head %}
     <meta charset="UTF-8">
-    <title>BANCO IMPACTA</title>
+    <title>{% block tittle %}BANCO IMPACTA{% endblock %}</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% endblock %}
 </head>
 <body>
-    <div class="site-content"></div>
-
-    {% block conteudo %}
-    {% end block %}
-    
+    <div class="site-content"> {% block conteudo %} {% endblock %} </div>
 </body>
 </html>

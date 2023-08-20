@@ -1,9 +1,7 @@
 from flask import Blueprint, request, render_template, session
 from db import db
 
-# Se comunica com o bd e puxa o conselho da api
 page = Blueprint('login', __name__, template_folder="template")
-
 
 @page.route('/register', methods=['GET'])
 def carregar():
@@ -20,7 +18,7 @@ def register():
     return '<h1>REGISTRADO COM SUCESSO</h1>'
 
 
-@page.route('/login', methods=['GET'])
-def carregar():
-    return render_template("login.html")
+# @page.route('/login', methods=['GET'])
+# def carregar():
+#     return render_template("login.html")
 
