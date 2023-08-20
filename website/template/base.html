@@ -2,18 +2,15 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>{% block tittle %}BANCO IMPACTA{% endblock %}</title>
+    <title>BANCO IMPACTA</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <style>
-        .site-content{
-            flex-grow: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-    <div class="site-content">
-    {% block conteudo %}
-    {% endblock %}
-    </div>
-</body>
+<body>
+    <div class="site-content"></div>
 
+    {% block conteudo %}
+    {% end block %}
+    
+</body>
 </html>
