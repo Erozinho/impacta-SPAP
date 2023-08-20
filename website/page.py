@@ -23,3 +23,4 @@ def register():
 @page.route('/login', methods=['GET'])
 def carregar():
     return render_template("login.html")
+
