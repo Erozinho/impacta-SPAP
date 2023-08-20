@@ -12,16 +12,30 @@ body{
 
 form{
     border-style: solid;
-    border-width: 1px black;
+    border-color: black;
+    border-width: 1.0px black;
     font-family: Verdana;
-    max-width: 540px;
-    color:#4a4a4a;
+    max-width: 550px;
+    color:hsl(221, 73%, 37%);
+    font-weight: bold;
+    margin-block: 20px;
 }
 
 h1{
   text-align: center;
+  height: 75px;
   font-weight: bold;
   font-size: 1.5em;
+  font-family: Verdana;
+  color:hsl(221, 73%, 37%);
+}
+
+h2{
+  text-align: center;
+  font-weight: bold;
+  height: 50px;
+  font-size: 1.2em;
+
 }
 
 .nome,.senha,.cpf{
@@ -43,12 +57,18 @@ h1{
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 12px;
+  border-radius: 5px;
+  border: 1px solid hsl(221, 73%, 37%);
+  box-shadow: 2px 2px 2px rgb(0,0,0,0.2);
+  height: 20px;
+  width: 500px;
+  
 }
 
 .botao1{
   background-color: lightcyan; 
-  border: 1px solid darkslategray;
-  color: darkslategray;
+  border: 1px solid hsl(221, 73%, 37%);
+  color: hsl(221, 73%, 37%);
   padding: 0.2em 2.5em;
   text-align: center;
   text-decoration: none;
@@ -56,14 +76,15 @@ h1{
   font-size: 12px;
   border-radius: 12px;
   font-weight: bold;
+  height: 30px;
 }
 .botao1:hover,.botao2:hover {
   background-color: lightgray;
 }
 .botao2{
   background-color: lightcyan; 
-  border: 1px solid darkslateblue;
-  color: darkslateblue;
+  border: 1px solid hsl(221, 73%, 37%);
+  color: hsl(221, 73%, 37%);
   padding: 0.2em 2.5em;
   text-align: center;
   text-decoration: none;
@@ -72,32 +93,14 @@ h1{
   border-radius: 12px;
   font-weight: bold;
   margin-bottom: 10px;
+  height: 30px;
 }
 
 .bcentral{
   margin-left: 31%;
 }
 
-.botao3 {
-  background-color: lightcyan;
-  border: 1.5px solid darkslateblue;
-  border-radius: 20px 20px 20px 20px;
-  color: #4a4a4a;
-  padding: 16px;
-  text-align: center;
-  text-decoration: none;
-  display: flex;
-  font-size: 16px;
-  margin: auto;
-}
-
-.botao3:hover {
-  background-color: rgb(81, 81, 81);
-  color:rgb(255, 255, 255);
-  transition: all 0.3s ease-in-out;
-}
-
-
 .site-content{
     flex-grow: 1;
 }
+
