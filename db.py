@@ -8,6 +8,10 @@ firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 
+
+cred = db.collection("users").document("11111111111").get()
+print(cred.to_dict())
+
 # testes
 
 # cria uma nova documentação com id automatico

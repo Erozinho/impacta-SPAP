@@ -7,6 +7,7 @@ page = Blueprint('login', __name__, template_folder="template")
 def carregar():
     return render_template("registrar.html")
 
+
 @page.route('/register', methods=['POST'])
 def register():
     nome = request.form.get('nome')
@@ -18,3 +19,19 @@ def register():
     return '<h1>REGISTRADO COM SUCESSO</h1>'
 
 
+@page.route('/login', methods=['GET'])
+def carregar_l():
+    return render_template('login.html')
+
+
+@page.route('/login', methods=['POST'])
+def login():
+    cpf = request.form.get('cpf')
+    senha = request.form.get('senha')
+    cred = db.collection("users").document("cpf").get()
+    cred = cred.to_dict()
+    if cred['senha'] == senha:
+        print('PASSOU')
+    else:
+        print("SENHA ERRADA")
+    return "<h1>OI</h1>"
