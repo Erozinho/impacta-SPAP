@@ -21,7 +21,8 @@ def register():
     dados = {"nome":nome, "cpf":cpf, "senha":senha}
     db.collection('users').document(cpf).set(dados)
     db.collection('contas').document(cpf).set({"saldo": 0, "fatura":0})
-    return '<h1>REGISTRADO COM SUCESSO</h1>'
+    msg = "REGISTRADO COM SUCESSO"
+    return render_template("register.html", error=msg)
 
 
 @page.route('/login', methods=['GET'])
@@ -40,5 +41,5 @@ def login():
         print('PASSOU')
         return '<h1>SENHA CORRETA</h1>'
     else:
-        print("SENHA ERRADA")
-        return render_template('login.html')
+        msg = "ALGUMA INFORMAÇÃO ESTA INCORRETA!"
+        return render_template('login.html', error=msg)
