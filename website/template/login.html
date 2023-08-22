@@ -3,11 +3,11 @@
 {% block conteudo %}
 
 <div class="body">
-    <form class="tela-login">
+    <form method="post" class="tela-login">
         <h1>Login</h1>
-        <input id="cpf" class="cpf-login" type="text" placeholder="CPF">
+        <input name="cpf" id="cpf" class="cpf-login" type="text" placeholder="CPF">
         <br><br>
-        <input id="password" class="senha-login" type="password" placeholder="Senha">
+        <input name="senha" id="senha" class="senha-login" type="password" placeholder="Senha">
         <br><br>
         <input class="btn-login" type="submit" value="ENVIAR">
         <br><br>

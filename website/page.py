@@ -1,7 +1,12 @@
-from flask import Blueprint, request, render_template, session
+from flask import Blueprint, request, render_template, session, redirect
 from db import db
 
 page = Blueprint('login', __name__, template_folder="template")
+
+@page.route('/')
+def home():
+    return redirect('http://127.0.0.1:5000/login', code=302)
+
 
 @page.route('/register', methods=['GET'])
 def carregar():
@@ -28,10 +33,12 @@ def carregar_l():
 def login():
     cpf = request.form.get('cpf')
     senha = request.form.get('senha')
-    cred = db.collection("users").document("cpf").get()
-    cred = cred.to_dict()
+    print(cpf, senha)
+    cred = db.collection("users").document(cpf).get()
+    cred = (cred.to_dict())
     if cred['senha'] == senha:
         print('PASSOU')
+        return '<h1>SENHA CORRETA</h1>'
     else:
         print("SENHA ERRADA")
-    return "<h1>OI</h1>"
+        return render_template('login.html')
