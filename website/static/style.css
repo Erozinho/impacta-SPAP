@@ -1,114 +1,16 @@
 body{
   background-color: white;
 }
-.centralize{
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-form{
-    border-style: solid;
-    border-color: black;
-    border-width: 1.0px black;
-    font-family: Verdana;
-    max-width: 550px;
-    color:hsl(221, 73%, 37%);
-    font-weight: bold;
-    margin-block: 20px;
-}
-
-h1{
-  text-align: center;
-  height: 75px;
-  font-weight: bold;
-  font-size: 1.5em;
-  font-family: Verdana;
-  color:hsl(221, 73%, 37%);
-}
-
-h2{
-  text-align: center;
-  font-weight: bold;
-  height: 50px;
-  font-size: 1.2em;
-
-}
-
-.nome,.senha,.cpf{
-  margin-left: 10px;
-  font-weight: bold;
-  font-size: 13px;
-}
-
-.senha-register::-webkit-outer-spin-button,.senha-register::-webkit-inner-spin-button{
-  -webkit-appearance: none;
-}
-
-.cpf-register::-webkit-outer-spin-button,.senha-register::-webkit-inner-spin-button{
-  -webkit-appearance: none;
-}
-
-.cpf-register,.nome-register,.senha-register{
-  width: 510px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 12px;
-  border-radius: 5px;
-  border: 1px solid hsl(221, 73%, 37%);
-  box-shadow: 2px 2px 2px rgb(0,0,0,0.2);
-  height: 20px;
-  width: 500px;
-  
-}
-
-.botao1{
-  background-color: lightcyan; 
-  border: 1px solid hsl(221, 73%, 37%);
-  color: hsl(221, 73%, 37%);
-  padding: 0.2em 2.5em;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  border-radius: 12px;
-  font-weight: bold;
-  height: 30px;
-}
-.botao1:hover,.botao2:hover {
-  background-color: lightgray;
-}
-.botao2{
-  background-color: lightcyan; 
-  border: 1px solid hsl(221, 73%, 37%);
-  color: hsl(221, 73%, 37%);
-  padding: 0.2em 2.5em;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  border-radius: 12px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  height: 30px;
-}
-
-.bcentral{
-  margin-left: 31%;
-}
 
 .site-content{
     flex-grow: 1;
 }
 
 .body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Trebuchet MS', sans-serif;
  }
  
- .tela-login {
+ .tela-login,.tela-register {
   background-color: rgba(0, 0, 0, 0.9);
   position: absolute;
   top: 50%;
@@ -119,24 +21,33 @@ h2{
   color: white;
  }
  
- .senha-login,.cpf-login {
+ .senha-login,.cpf-login,.cpf-register,.nome-register,.senha-register {
   padding: 15px;
   border: none;
   outline: none;
   font-size: 15px;
  }
 
- .btn-login {
-  background-color: dodgerblue;
+ .btn-login,.btn-register {
+  background: linear-gradient(to left, rgb(0, 162, 255) 50%, lightblue 50%) right;
   border: none;
   padding: 15px;
   width: 100%;
   border-radius: 10px;
   color: white;
   font-size: 15px;
+  font-weight: bold;
+  background-size: 200%;
+  transition: .5s ease-out;
  }
 
- .btn-login:hover {
-  background-color: deepskyblue;
+
+ .btn-login:hover,.btn-register:hover {
+  background-position: left;
   cursor: pointer;
+ }
+
+ h1{
+  align-items: center;
+  text-align: center;
  }

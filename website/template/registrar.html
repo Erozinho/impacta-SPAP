@@ -2,26 +2,21 @@
 
 {% block conteudo %}
 
-<div class="centralize">
-  <h1>BANCO IMPACTA</h1>
-  
-  <form id="form1" method="post">
-      
-      <h2>CRIE SUA CONTA</h2>
+<div class="body">
+  <form method="post" class="tela-register">
+      <h1>REGISTRO!</h1>
+      <input name="nome" id="nome" class="nome-register" type="text" placeholder="Nome Completo">
+      <br><br>
+      <input name="cpf" id="cpf" class="cpf-register" type="text" placeholder="CPF">
+      <br><br>
+      <input name="senha" id="senha" class="senha-register" type="password" minlength="8" placeholder="Senha">
+      <br><br>
+      <input name="senha" id="senha" class="senha-register" type="password" minlength="8" placeholder="Confirme sua senha">
+      <br><br>
+      <input class="btn-register" type="submit" value="REGISTRAR">
+      <br><br>
+      <a href="http://127.0.0.1:5000/login">Já tem conta? Entre aqui!</a>
+  </form>
+</div>
 
-      <label class="nome-register" for="nome">Nome completo:</label><br>
-      <input type="text" id="nome" name="nome" required><br>
-
-      <label class="cpf-register" for="cpf">CPF:</label><br>
-      <input type="text" id="cpf" name="cpf" placeholder="Somente números" pattern="[0-9]{11}" required>
-
-      <label class="senha-register" for="senha">Senha:</label><br>
-      <input type="password" id="senha" name="senha" required><br>
-
-      <div class="bcentral">
-        <input class="botao1" type="submit" value="REGISTRAR">
-        <input class="botao2"type="reset" value="LIMPAR">
-      </div>  
-  </form><br> 
-</div><br>
 {% endblock %}
