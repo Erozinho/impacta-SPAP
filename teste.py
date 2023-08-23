@@ -10,4 +10,3 @@ dados['cpf'] = cpf
 dados['senha'] = senha
 
 db.collection('users').document(dados['cpf']).set(dados)
-
