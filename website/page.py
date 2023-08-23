@@ -57,6 +57,6 @@ def login():
         session["fatura"] = infos['fatura']
         flash("Acesso bem sucedido!", "info")
         return redirect("http://127.0.0.1:5000/home", code=302)
-    else:
-        flash("INFORMAÇÕES INCORRETAS", "info")
-        return render_template('login.html')
+
+    flash("INFORMAÇÕES INCORRETAS", "info")
+    return render_template('login.html')
