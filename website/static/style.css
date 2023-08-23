@@ -51,3 +51,7 @@ body{
   align-items: center;
   text-align: center;
  }
+
+ .registrar,.esquecer{
+  color: #48b7f8;
+ }
