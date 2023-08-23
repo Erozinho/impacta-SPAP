@@ -26,7 +26,7 @@ def register():
 
     if doc.exists:
         flash("Já existe uma conta criado com esse CPF!", "info")
-        return ("register.html")
+        return render_template("registrar.html")
     
     db.collection('users').document(cpf).set(dados)
     db.collection('contas').document(cpf).set({"saldo": 0, "fatura":0})
