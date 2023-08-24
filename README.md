@@ -21,7 +21,7 @@ Nosso porjeto se tratá de uma Bank Line, ou sejá, é uma representação de co
 <p align="left">
 
 # 🚀 Como executar:
-**Precisa ter o python instalado em seu equipamento!**<br>Clone o repositório em seu computador e no terminal execute: **pip install -r requirements.txt**.<br>Após isso você deve procuar o arquivo **main.py** e executa-lo para iniciar os serviços!
+**Precisa ter o python instalado em seu equipamento!**<br>Clone o repositório em seu computador e no terminal execute: **pip install -r requirements.txt**.<br>Após isso você deve procurar o arquivo **main.py** e executa-lo para iniciar os serviços!
 
 <i>Lembrete:<br></i>
 **Por motivos de segurança a servicekey do banco de dados não esta incluso no repositorio!!**
