@@ -15,14 +15,14 @@
 
 # 📑 Tema do projeto:
 <h4>Bank Line</h4>
-Nosso porjeto se tratá de uma Bank Line, ou sejá, é uma representação de como seria um banco real e suas funcionalidades mais basicas possiveis, como: transferencia entre contas, consutar saldo existente, checar sua fatura do cartão de credito e afins.
+Nosso projeto se tratá de uma Bank Line, ou seja, é uma representação de como seria um banco real e suas funcionalidades mais basicas possiveis, como: transferencia entre contas, consutar saldo existente, checar sua fatura do cartão de credito e afins.
 </p>
 
 <p align="left">
 
 # 🚀 Como executar:
-**Precisa ter o python instalado em seu equipamento!**<br>Clone o repositório em seu computador e no terminal execute: **pip install -r requirements.txt**.<br>Após isso você deve procurar o arquivo **main.py** e executa-lo para iniciar os serviços!
+**Nescessario ter o <a href="https://www.python.org/downloads/">python</a> instalado em seu equipamento!**<br>Clone o repositório em seu computador e no terminal execute: **pip install -r requirements.txt**.<br>Após execute o arquivo **main.py** localizado no repositório para iniciar os serviços!
 
 <i>Lembrete:<br></i>
-**Por motivos de segurança a servicekey do banco de dados não esta incluso no repositorio!!**
+**Por motivos de segurança a servicekey do banco de dados não esta incluso no repositório!!**
 </p>
