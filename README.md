@@ -1,7 +1,7 @@
 <h1 align="center">Projeto de Software Product: Analysis & Specification</h1>
 <h3 align="center">Faculdade Impacta 2023</h3>
 
-- 🚹 MEMBERS: **FELIPE | GUILHERME | LEONARDO | LUIS | RENAN | RENATO(RENAN)**
+- 🚹 MEMBERS: **<a href="https://www.linkedin.com/in/felipearaujosouza/">FELIPE</a> | <a href="https://www.linkedin.com/in/guilherme-antonio-conte-7008b5201/">GUILHERME</a> | <a href="https://www.linkedin.com/in/leonardo-escalada-a22a5521a/">LEONARDO</a> | <a href="https://www.linkedin.com/in/luis-henrique-genda-9246a91b8/">LUIS</a> | <a href="https://www.linkedin.com/in/renan-ribeiro-ba127a72/">RENAN</a> | <a href="https://www.linkedin.com/in/renan-r-resende/">RENATO(RENAN)</a>**
 
 <p align="left">
 
