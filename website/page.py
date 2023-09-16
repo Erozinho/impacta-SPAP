@@ -18,7 +18,6 @@ def register():
     nome = request.form.get('nome')
     cpf = request.form.get('cpf')
     senha = request.form.get('senha')
-
     dados = {"nome":nome, "cpf":cpf, "senha":senha}
 
     doc_ref = db.collection('users').document(cpf)
@@ -60,3 +59,4 @@ def login():
 
     flash("INFORMAÇÕES INCORRETAS", "info")
     return render_template('login.html')
+

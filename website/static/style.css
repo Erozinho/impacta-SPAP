@@ -55,3 +55,28 @@ body{
  .registrar,.esquecer{
   color: #48b7f8;
  }
+
+ .home{
+  align-items: bottom;
+  text-align: bottom;
+  padding: 20px;
+  text-align: left;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #333;
+  border-right: 0%;
+  margin-left: 400px;
+  margin-right: 400px;
+  margin-top: 250px;
+}
+
+h2{
+  text-align: justify;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 24px;
+  color: #333;
+}
