@@ -2,22 +2,23 @@
 
 {% block conteudo %}
 
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-        <script>
-          for (var i=0; i<messages.length; i++) {
-            alert(messages[i]);
-          }
-        </script>
-    {% endif %}
-  {% endwith %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <script>
+      var messages = {{ messages | safe }};
+      for (var i=0; i<messages.length; i++) {
+        alert(messages[i]);
+      }
+    </script>
+  {% endif %}
+{% endwith %}
 
 <div class="body">
   <form method="post" class="tela-register">
       <h1>REGISTRO!</h1>
       <input name="nome" id="nome" class="nome-register" type="text" placeholder="Nome Completo">
       <br><br>
-      <input name="cpf" id="cpf" class="cpf-register" type="text" placeholder="CPF">
+      <input name="cpf" id="cpf" class="cpf-register" type="text" minlength="11" maxlength="11" placeholder="CPF">
       <br><br>
       <input name="senha" id="senha" class="senha-register" type="password" minlength="8" placeholder="Senha">
       <br><br>

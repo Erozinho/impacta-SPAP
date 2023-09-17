@@ -55,8 +55,25 @@ def login():
         session["saldo"] = infos['saldo']
         session["fatura"] = infos['fatura']
         flash("Acesso bem sucedido!", "info")
-        return redirect("http://127.0.0.1:5000/home", code=302)
+        return redirect('http://127.0.0.1:5000/home',code=302)
 
-    flash("INFORMAÇÕES INCORRETAS", "info")
+    flash("INFORMAÇÕES INCORRETAS", "error")
     return render_template('login.html')
 
+
+@page.route('/logout')
+def logout():
+    session.pop('cpf', None)
+    session.pop('nome', None)
+    session.pop('saldo', None)
+    session.pop('fatura', None)
+    flash("Saida bem sucedida!", "info")
+    return redirect('http://127.0.0.1:5000/login',code=302)
+
+
+@page.route('/home', methods=['GET'])
+def carregar_h():
+    if 'cpf' in session:
+        return render_template('home.html')
+    flash(f"Você não esta logado!", "warning")
+    return redirect("http://127.0.0.1:5000/login", code=302)
