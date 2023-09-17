@@ -15,7 +15,17 @@
 
 <div class="body">
     <h1>Bem vindo {{ session['nome'] }}</h1>
-    <h2>Seu saldo atual: {{ session['saldo'] }}
-    </h2>
+    <p>Seu saldo atual:</p>
+    <p class="saldo">{{ session['saldo'] }}</p><br>
+    <a href="http://127.0.0.1:5000/logout">Sair da conta</a>
 </div><br>
+<script>
+   let x = document.querySelectorAll(".saldo");
+    for (let i = 0, len = x.length; i < len; i++) {
+        let num = Number(x[i].innerHTML)
+            .toLocaleString('en');
+        x[i].innerHTML = num;
+        x[i].classList.add("currSign");
+    }
+</script>
 {% endblock %}
