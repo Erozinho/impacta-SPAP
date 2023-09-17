@@ -4,9 +4,9 @@
 
 <body>
     <div class="home">
-        <h1>Bem vindo {{ nome }}</h1>
+        <h1>Bem vindo {{ session['nome'] }}</h1>
         <h2>Seu saldo atual é de: <br>
-            {{ saldo }}
+            {{ session['saldo'] }}
         </h2>
     </div>
 </body>
