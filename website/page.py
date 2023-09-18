@@ -25,12 +25,12 @@ def register():
 
     if doc.exists:
         flash("Já existe uma conta criado com esse CPF!", "info")
-        return render_template("registrar.html")
+        return render_template('http://127.0.0.1:5000/register',code=302)
     
     db.collection('users').document(cpf).set(dados)
     db.collection('contas').document(cpf).set({"saldo": 0, "fatura":0})
     flash("Conta cadastrada com sucesso!", "info")
-    return render_template("login.html")
+    return redirect('http://127.0.0.1:5000/login',code=302)
 
 
 @page.route('/login', methods=['GET'])
