@@ -13,11 +13,25 @@
   {% endif %}
 {% endwith %}
 
+
+<nav>
+  <img src="static/favicon.ico" alt="logo">
+  <ul>
+    <li><a href="http://127.0.0.1:5000/home">Página Inicial</a></li>
+    <li><a href="URL_DA_PAGINA_TRANSFERENCIA">Transferência</a></li>
+    <li class="nav-right"><a href="http://127.0.0.1:5000/logout">Sair</a></li>
+  </ul>      
+</nav>
+
+<br>
+<br>
+<br>
+<br>
+
 <div class="body">
     <h1>Bem vindo {{ session['nome'] }}</h1>
     <p>Seu saldo atual:</p>
     <p class="saldo">{{ session['saldo'] }}</p><br>
-    <a href="http://127.0.0.1:5000/logout">Sair da conta</a>
 </div><br>
 <script>
    let x = document.querySelectorAll(".saldo");
