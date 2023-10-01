@@ -1,5 +1,5 @@
 body{
-  background-color: white;
+  background-color: floralwhite;
 }
 
 .site-content{
@@ -82,7 +82,7 @@ h2{
 }
 
 .saldo{
-  color: green;
+  color: black;
 }
 
 .currSign:before {
@@ -134,4 +134,62 @@ nav img{
   max-height: 50px;
   margin-right: 25px;
   margin-left: -200px;
+}
+
+.bem-vindo {
+  background-color: white;
+  font-size: 25px; 
+  font-weight: bold; 
+  color: black; 
+  margin-bottom: 10px; 
+  border-radius: 10px;
+  padding-right: 24px;
+  padding-left: 24px;
+  padding-bottom: 24px;
+  padding-top: 24px;
+  box-sizing: border-box;
+  position: relative;
+  text-align: start;
+  border-radius: 12px;
+  border-color: rgb(0, 0, 0, 0.1);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-left-style: solid;
+  margin-bottom: 0;
+  margin-top: 16px;
+  margin-left: 400px;
+  border-width: 1px;
+  width: 400px;
+}
+
+.saldo-container{
+  background-color: white;
+  font-size: 24px; 
+  font-weight: bold; 
+  color: black; 
+  margin-bottom: 10px; 
+  border-radius: 10px;
+  padding-right: 24px;
+  padding-left: 24px;
+  padding-bottom: 24px;
+  padding-top: 24px;
+  box-sizing: border-box;
+  position: relative;
+  text-align: start;
+  border-radius: 12px;
+  border-color: rgb(0, 0, 0, 0.1);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-left-style: solid;
+  margin-bottom: 0;
+  margin-top: 16px;
+  margin-left: 400px;
+  border-width: 1px;
+  width: 400px;
 }

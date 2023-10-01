@@ -27,11 +27,14 @@
 <br>
 <br>
 <br>
+<br>
 
 <div class="body">
-    <h1>Bem vindo {{ session['nome'] }}</h1>
-    <p>Seu saldo atual:</p>
-    <p class="saldo">{{ session['saldo'] }}</p><br>
+  <h1 class="bem-vindo">Bem vindo {{ session['nome'] }}</h1>
+  <div class="saldo-container">
+    <p class="saldo-label">Seu saldo atual:</p>
+    <p class="saldo">{{ session['saldo'] }}</p>
+  </div>
 </div><br>
 <script>
    let x = document.querySelectorAll(".saldo");
