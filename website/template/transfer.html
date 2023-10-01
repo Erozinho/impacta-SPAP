@@ -13,22 +13,47 @@
   {% endif %}
 {% endwith %}
 
+<nav>
+    <img src="static/favicon.ico" alt="logo">
+    <ul>
+      <li><a href="http://127.0.0.1:5000/home">Página Inicial</a></li>
+      <li><a href="http://127.0.0.1:5000/transfer">Transferência</a></li>
+      <li class="nav-right"><a href="http://127.0.0.1:5000/logout">Sair</a></li>
+    </ul>      
+  </nav><br>
+  <br>
+  <br>
+  <br>
+  <br>
 <div class="body">
-    <form method="post" class="tela-login">
-        <h1>Login</h1>
-        <input name="cpf" id="cpf" class="cpf-login" oninput='cpfChange(this.value)' maxlength="14" minlength="14" type="text" placeholder="CPF">
+    <form method="post" class="tela-transfer">
+        <h1 style="text-transform: uppercase;">Transferência</h1>
+
+        <p class="saldoa">Saldo Atual:</p> 
+
+        <p class="saldo-t">{{ session['saldo'] }}</p>
+
+        <input name="cpf" id="cpf-alvo" class="cpf-alvo" type="text" oninput='cpfChange(this.value)' placeholder="CPF da conta que deseja realizar a transferência">
         <br><br>
-        <input name="senha" id="senha" class="senha-login" type="password" placeholder="Senha">
+
+        <input name="valor" id="valor" class="valor-transfer" type="number" placeholder="Valor a ser transferido!">
         <br><br>
-        <input class="btn-login" type="submit" value="ENVIAR" href="http//127.0.0.1:5000/home">
-        <br><br>
-        <a class="registrar" href="http://127.0.0.1:5000/register">Registre-se</a><br>
-        <a class="esquecer" href="http://127.0.0.1:5000/senha">Esqueceu sua senha?</a>
+
+        <input class="btn-transfer" type="submit" value="Realizar Operação" href="http//127.0.0.1:5000/home">
+
     </form>
 </div><br>
 
 <script>
-  function cpfChange(cpfValue) {
+    let x = document.querySelectorAll(".saldo-t");
+     for (let i = 0, len = x.length; i < len; i++) {
+         let num = Number(x[i].innerHTML)
+             .toLocaleString('en');
+         x[i].innerHTML = num;
+         x[i].classList.add("currSign");
+     }
+
+    function cpfChange(cpfValue) {
     var numeric = cpfValue.replace(/[^0-9]+/g, '');
     var cpfLength = numeric.length;
 
@@ -36,7 +61,7 @@
     var partTwo = numeric.slice(3, 6) + ".";
     var partThree = numeric.slice(6, 9) + "-";
 
-    var cpfInput = document.getElementById("cpf"); // here is the CPF ID of the input
+    var cpfInput = document.getElementById("cpf-alvo"); // here is the CPF ID of the input
 
     if (cpfLength < 4) { 
         cpfInput.value = numeric;
@@ -63,5 +88,5 @@
         cpfInput.value = formatCPF;
     }
 }
-</script>
+ </script>
 {% endblock %}

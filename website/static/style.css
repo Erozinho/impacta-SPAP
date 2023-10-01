@@ -193,3 +193,17 @@ nav img{
   border-width: 1px;
   width: 400px;
 }
+
+.saldoa{
+  margin:0;
+  display:inline;
+  float:left;
+  padding-right: 10px;
+}
+
+.saldo-t{
+  color: green;
+  font-weight: bolder;
+  margin:1;
+  display:inline:float:right;
+}

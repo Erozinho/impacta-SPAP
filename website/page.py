@@ -17,6 +17,7 @@ def carregar():
 def register():
     nome = request.form.get('nome')
     cpf = request.form.get('cpf')
+    cpf = cpf.replace(".","").replace("-","")
     senha = request.form.get('senha')
     dados = {"nome":nome, "cpf":cpf, "senha":senha}
 
@@ -41,6 +42,7 @@ def carregar_l():
 @page.route('/login', methods=['POST'])
 def login():
     cpf = request.form.get('cpf')
+    cpf = cpf.replace(".","").replace("-","")
     senha = request.form.get('senha')
 
     cred = db.collection("users").document(cpf).get()
@@ -77,3 +79,47 @@ def carregar_h():
         return render_template('home.html')
     flash(f"Você não esta logado!", "warning")
     return redirect("http://127.0.0.1:5000/login", code=302)
+
+
+@page.route('/transfer', methods=['GET'])
+def carregar_t():
+
+    if 'cpf' in session:
+        return render_template('transfer.html')
+
+    flash(f"Você não esta logado!", "warning")
+    return redirect("http://127.0.0.1:5000/login", code=302)
+
+
+@page.route('/transfer', methods=['POST'])
+def trnasferir():
+        cpf = request.form.get('cpf')
+        print(cpf)
+        cpf = cpf.replace(".","").replace("-","")
+        valor = float(request.form.get('valor'))
+
+        conta_alvo = db.collection("users").document(cpf).get()
+        ca_info = conta_alvo.to_dict()
+
+        if ca_info['cpf'] == cpf:
+
+            conta_alvo = db.collection("contas").document(cpf).get()
+            ca_conta = conta_alvo.to_dict()
+
+            valor_total = float(session['saldo'])
+
+            if valor_total < valor:
+                flash(f"Saldo insucificente", "warning")
+                return redirect("http://127.0.0.1:5000/transfer", code=302) 
+            
+            db.collection("contas").document(ca_info['cpf']).update({"saldo": ca_conta['saldo']+valor})
+            db.collection("contas").document(session['cpf']).update({"saldo": float(session['saldo']) - valor})
+
+            session["saldo"] = valor_total - valor
+            
+            flash(f"Transferencia realizada com sucesso!", "warning")
+            return redirect("http://127.0.0.1:5000/home", code=302)
+
+        flash(f"CPF invalido/ Não Cadastrado", "warning")
+        return redirect("http://127.0.0.1:5000/transfer", code=302)
+        
