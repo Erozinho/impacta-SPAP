@@ -48,8 +48,8 @@ def login():
     cred = db.collection("users").document(cpf).get()
     cred = (cred.to_dict())
 
-    if cred['senha'] == senha:
-        print('PASSOU')
+
+    if cred.exists and cred['senha'] == senha:
         infos = db.collection("contas").document(cpf).get()
         infos = infos.to_dict()
         session["cpf"] = cred['cpf']
@@ -98,9 +98,8 @@ def trnasferir():
     cpf = cpf.replace(".","").replace("-","")
     valor = float(request.form.get('valor'))
 
-    doc_ref = db.collection('users').document(cpf)
-    doc = doc_ref.get()
-    if doc.exists:
+    doc_ref = db.collection('users').document(cpf).get()
+    if doc_ref.exists:
         conta_alvo = db.collection("contas").document(cpf).get() # pega as informações da conta(saldo e afins)
         ca_conta = conta_alvo.to_dict()
         conta_alvo = db.collection("users").document(cpf).get() # pega as informações de usuario(cpf e nome)
