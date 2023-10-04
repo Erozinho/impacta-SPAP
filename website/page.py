@@ -77,7 +77,7 @@ def logout():
 def carregar_h():
     if 'cpf' in session:
         return render_template('home.html')
-    flash(f"Você não esta logado!", "warning")
+    flash("Você não esta logado!", "warning")
     return redirect("http://127.0.0.1:5000/login", code=302)
 
 
@@ -87,39 +87,39 @@ def carregar_t():
     if 'cpf' in session:
         return render_template('transfer.html')
 
-    flash(f"Você não esta logado!", "warning")
+    flash("Você não esta logado!", "warning")
     return redirect("http://127.0.0.1:5000/login", code=302)
 
 
 @page.route('/transfer', methods=['POST'])
 def trnasferir():
-        cpf = request.form.get('cpf')
-        print(cpf)
-        cpf = cpf.replace(".","").replace("-","")
-        valor = float(request.form.get('valor'))
+    cpf = request.form.get('cpf')
+    print(cpf)
+    cpf = cpf.replace(".","").replace("-","")
+    valor = float(request.form.get('valor'))
 
-        conta_alvo = db.collection("users").document(cpf).get()
+    doc_ref = db.collection('users').document(cpf)
+    doc = doc_ref.get()
+    if doc.exists:
+        conta_alvo = db.collection("contas").document(cpf).get() # pega as informações da conta(saldo e afins)
+        ca_conta = conta_alvo.to_dict()
+        conta_alvo = db.collection("users").document(cpf).get() # pega as informações de usuario(cpf e nome)
         ca_info = conta_alvo.to_dict()
 
-        if ca_info['cpf'] == cpf:
+        valor_total = float(session['saldo'])
 
-            conta_alvo = db.collection("contas").document(cpf).get()
-            ca_conta = conta_alvo.to_dict()
-
-            valor_total = float(session['saldo'])
-
-            if valor_total < valor:
-                flash(f"Saldo insucificente", "warning")
-                return redirect("http://127.0.0.1:5000/transfer", code=302) 
+        if valor_total < valor:
+            flash("Saldo insucificente", "warning")
+            return redirect("http://127.0.0.1:5000/transfer", code=302) 
             
-            db.collection("contas").document(ca_info['cpf']).update({"saldo": ca_conta['saldo']+valor})
-            db.collection("contas").document(session['cpf']).update({"saldo": float(session['saldo']) - valor})
+        db.collection("contas").document(ca_info['cpf']).update({"saldo": ca_conta['saldo']+valor})
+        db.collection("contas").document(session['cpf']).update({"saldo": float(session['saldo']) - valor})
 
-            session["saldo"] = valor_total - valor
+        session["saldo"] = valor_total - valor
             
-            flash(f"Transferencia realizada com sucesso!", "warning")
-            return redirect("http://127.0.0.1:5000/home", code=302)
+        flash("Transferencia realizada com sucesso!", "warning")
+        return redirect("http://127.0.0.1:5000/home", code=302)
 
-        flash(f"CPF invalido/ Não Cadastrado", "warning")
-        return redirect("http://127.0.0.1:5000/transfer", code=302)
+    flash("CPF invalido/ Não Cadastrado", "warning")
+    return redirect("http://127.0.0.1:5000/transfer", code=302)
         
