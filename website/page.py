@@ -46,14 +46,12 @@ def login():
     senha = request.form.get('senha')
 
     cred = db.collection("users").document(cpf).get()
-    cred = (cred.to_dict())
-
-
-    if cred.exists and cred['senha'] == senha:
+    sec = (cred.to_dict())
+    if cred.exists and sec['senha'] == senha:
         infos = db.collection("contas").document(cpf).get()
         infos = infos.to_dict()
-        session["cpf"] = cred['cpf']
-        session["nome"] = cred['nome']
+        session["cpf"] = sec['cpf']
+        session["nome"] = sec['nome']
         session["saldo"] = infos['saldo']
         session["fatura"] = infos['fatura']
         flash("Acesso bem sucedido!", "info")
