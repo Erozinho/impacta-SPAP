@@ -90,7 +90,7 @@ def carregar_t():
 
 
 @page.route('/transfer', methods=['POST'])
-def trnasferir():
+def transferir():
     cpf = request.form.get('cpf')
     print(cpf)
     cpf = cpf.replace(".","").replace("-","")
@@ -119,4 +119,30 @@ def trnasferir():
 
     flash("CPF invalido/ Não Cadastrado", "warning")
     return redirect("http://127.0.0.1:5000/transfer", code=302)
-        
+
+
+@page.route('/fatura', methods=['GET'])
+def carregar_f():
+
+    if 'cpf' in session:
+        return render_template('fatura.html')
+
+    flash("Você não esta logado!", "warning")
+    return redirect("http://127.0.0.1:5000/login", code=302)
+
+
+@page.route('/fatura', methods=['POST'])
+def fatura():
+
+    saldo = float(session['saldo'])
+    fatura = float(session['fatura'])
+
+    if saldo < fatura:
+        flash("Saldo insucificente", "warning")
+        return redirect("http://127.0.0.1:5000/transfer", code=302) 
+
+    session["saldo"] = saldo - fatura
+    if fatura - saldo >= 0:
+        session['fatura'] = 0
+        flash("Fatura paga com sucesso!", "warning")
+        return redirect("http://127.0.0.1:5000/home", code=302)    
