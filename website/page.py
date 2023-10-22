@@ -134,15 +134,21 @@ def carregar_f():
 @page.route('/fatura', methods=['POST'])
 def fatura():
 
+    valor = float(request.form.get('valor'))
     saldo = float(session['saldo'])
     fatura = float(session['fatura'])
 
-    if saldo < fatura:
+    if saldo < valor:
         flash("Saldo insucificente", "warning")
-        return redirect("http://127.0.0.1:5000/transfer", code=302) 
+        return redirect("http://127.0.0.1:5000/fatura", code=302) 
 
-    session["saldo"] = saldo - fatura
-    if fatura - saldo >= 0:
-        session['fatura'] = 0
-        flash("Fatura paga com sucesso!", "warning")
-        return redirect("http://127.0.0.1:5000/home", code=302)    
+    if (fatura - valor) <= 0:
+        flash("Favor informar um valor igual ou menor que sua fatura!", "warning")
+        return redirect("http://127.0.0.1:5000/home", code=302)
+    
+    db.collection("contas").document(session['cpf']).update({"fatura": float(session['fatura']) - valor})
+    db.collection("contas").document(session['cpf']).update({"saldo": float(session['saldo']) - valor})
+    session['fatura'] = fatura - valor
+    session['saldo'] = saldo - valor
+    flash("Fatura paga com sucesso!", "warning")
+    return redirect("http://127.0.0.1:5000/home", code=302)

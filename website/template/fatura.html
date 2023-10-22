@@ -30,14 +30,11 @@
     <form method="post" class="tela-fatura">
         <h1 style="text-transform: uppercase;">Transferência</h1>
 
-        <p class="saldoa">Saldo Atual:</p> 
+        <p class="saldoa">Fatura Atual:</p> 
 
-        <p class="saldo-t">{{ session['saldo'] }}</p>
+        <p class="saldo-t">{{ session['fatura'] }}</p>
 
-        <input name="cpf" id="cpf-alvo" class="cpf-alvo" type="text" oninput='cpfChange(this.value)' placeholder="CPF da conta que deseja realizar a transferência">
-        <br><br>
-
-        <input name="valor" id="valor" class="valor-transfer" type="number" placeholder="Valor a ser transferido!">
+        <input name="valor" id="valor" class="valor-transfer" type="number" placeholder="Valor a ser pago!">
         <br><br>
 
         <input class="btn-transfer" type="submit" value="Realizar Operação" href="http//127.0.0.1:5000/home">
