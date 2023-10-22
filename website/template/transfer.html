@@ -18,6 +18,7 @@
     <ul>
       <li><a href="http://127.0.0.1:5000/home">Página Inicial</a></li>
       <li><a href="http://127.0.0.1:5000/transfer">Transferência</a></li>
+      <li><a href="http://127.0.0.1:5000/fatura">Fatura</a></li>
       <li class="nav-right"><a href="http://127.0.0.1:5000/logout">Sair</a></li>
     </ul>      
   </nav><br>
@@ -25,24 +26,27 @@
   <br>
   <br>
   <br>
-<div class="body">
-    <form method="post" class="tela-transfer">
-        <h1 style="text-transform: uppercase;">Transferência</h1>
 
+<form method="post" class="tela-transfer">
+  <div class="container-saldo">
+    <div class="body">
         <p class="saldoa">Saldo Atual:</p> 
 
         <p class="saldo-t">{{ session['saldo'] }}</p>
+    </div>
+  </div>
+      
+  <div class="container-transferir">
+    <input name="cpf" id="cpf-alvo" class="cpf-alvo" type="text" oninput='cpfChange(this.value)' placeholder="Insira o CPF para transferência">
+      <br>
 
-        <input name="cpf" id="cpf-alvo" class="cpf-alvo" type="text" oninput='cpfChange(this.value)' placeholder="CPF da conta que deseja realizar a transferência">
-        <br><br>
-
-        <input name="valor" id="valor" class="valor-transfer" type="number" placeholder="Valor a ser transferido!">
-        <br><br>
+      <input name="valor" id="valor" class="valor-transfer" type="number" placeholder="Valor a ser transferido">
+        <br>
 
         <input class="btn-transfer" type="submit" value="Realizar Operação" href="http//127.0.0.1:5000/home">
+  </div>
+</form>
 
-    </form>
-</div><br>
 
 <script>
     let x = document.querySelectorAll(".saldo-t");
