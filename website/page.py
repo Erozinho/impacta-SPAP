@@ -152,3 +152,8 @@ def fatura():
     session['saldo'] = saldo - valor
     flash("Fatura paga com sucesso!", "warning")
     return redirect("http://127.0.0.1:5000/home", code=302)
+
+
+@page.route('/profile', methods=['GET'])
+def profile_c():
+    return "<h1>🦖 W.I.P ⚠️</h1>"
