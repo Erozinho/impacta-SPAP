@@ -28,28 +28,10 @@
   <br>
   <br>
 <div class="body">
-    <form method="post" class="tela-fatura">
-        <h1 style="text-transform: uppercase;">FATURA</h1>
-
-        <p class="saldoa">Fatura Atual:</p> 
-
-        <p class="saldo-t">{{ session['fatura'] }}</p>
-
-        <input name="valor" id="valor" class="valor-transfer" type="number" placeholder="Valor a ser pago!">
-        <br><br>
-
-        <input class="btn-transfer" type="submit" value="Realizar Operação" href="http//127.0.0.1:5000/home">
+    <h1>PERFIL</h1>
+    <form method="post" class="nome">
 
     </form>
 </div><br>
 
-<script>
-    let x = document.querySelectorAll(".saldo-t");
-     for (let i = 0, len = x.length; i < len; i++) {
-         let num = Number(x[i].innerHTML)
-             .toLocaleString('en');
-         x[i].innerHTML = num;
-         x[i].classList.add("currSign");
-     }
- </script>
 {% endblock %}

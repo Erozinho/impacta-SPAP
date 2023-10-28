@@ -156,4 +156,4 @@ def fatura():
 
 @page.route('/profile', methods=['GET'])
 def profile_c():
-    return "<h1>🦖 W.I.P ⚠️</h1>"
+    return render_template('profile.html')
