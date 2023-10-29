@@ -37,7 +37,7 @@
 
     <button class="btn-edit">EDITAR PERFIL</button>
   </div>
- <img id="img" src="{{ session['pfp'] }}"><br>
+  <label class="l-img" for="file"><img id="img" src="{{ session['pfp'] }}"></label><br>
 
     <form enctype="multipart/form-data" method="post" class="editar">
 
@@ -51,8 +51,6 @@
 
       <input class="salvar" type="submit" value="SALVAR">
       <input class="cancel" type="submit" value="CANCELAR">
-
-      <input name="teste" id="teste" class="teste" type="text" placeholder="a">
 
       <input type="file" id="file" name="file" />
       <br><br>
@@ -82,6 +80,7 @@ fileInput.addEventListener('change', e => {
 document.querySelector(".btn-edit").addEventListener("click", function(){
     document.querySelector(".show_info").style.display = "none";
     document.querySelector(".editar").style.display = "block";
+    document.querySelector('.l-img').style.pointerEvents = "all"
 });
 
 document.querySelector(".cancel").onclick = function () {

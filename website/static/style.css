@@ -256,4 +256,18 @@ nav img{
 
 .editar{
   display: none;
+  }
+
+.valor-transfer::-webkit-outer-spin-button,
+.valor-transfer::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.l-img{
+  pointer-events: none;
+}
+
+#file{
+  display: none;
 }
