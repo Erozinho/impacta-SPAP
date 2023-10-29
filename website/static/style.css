@@ -21,7 +21,7 @@ body{
   color: white;
  }
  
- .senha-login,.cpf-login,.cpf-register,.nome-register,.senha-register {
+ .senha-login,.cpf-login,.cpf-register,.nome-register,.senha-register,.email-register {
   padding: 15px;
   border: none;
   outline: none;
@@ -252,4 +252,8 @@ nav img{
   border-radius: 5px;
   font-size: 18px;
   cursor: pointer;
+}
+
+.editar{
+  display: none;
 }
