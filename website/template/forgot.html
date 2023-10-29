@@ -14,19 +14,22 @@
 {% endwith %}
 
 <div class="body">
-    <form method="post" class="tela-login">
-        <h1>Login</h1>
-        <input name="cpf" id="cpf" class="cpf-login" oninput='cpfChange(this.value)' maxlength="14" minlength="14" type="text" placeholder="CPF">
-        <br><br>
-        <input name="senha" id="senha" class="senha-login" type="password" placeholder="Senha">
-        <br><br>
-        <input class="btn-login" type="submit" value="ENVIAR" href="/home">
-        <br><br>
-        <a class="registrar" href="/register">Registre-se</a><br>
-        <a class="esquecer" href="/forgot">Esqueceu sua senha?</a>
-    </form>
-</div><br>
-
+  <form method="post" class="tela-register">
+      <h1>TROCAR SENHA!</h1>
+      <br><br>
+      <input name="cpf" id="cpf" class="cpf-register" type="text" minlength="14" oninput='cpfChange(this.value)' maxlength="14" placeholder="CPF">
+      <br><br>
+      <input name="email" id="email" class="email-register" type="email" placeholder="EMAIL">
+      <br><br>
+      <input name="senha" id="senha" class="senha-register" type="password" minlength="8" placeholder="Nova Senha">
+      <br><br>
+      <input name="senha" id="senha" class="senha-register" type="password" minlength="8" placeholder="Confirme sua nova senha">
+      <br><br>
+      <input class="btn-register" type="submit" value="ALTERAR">
+      <br><br>
+      <a class="esquecer" href="/login">Já tem conta? Entre aqui!</a>
+  </form>
+</div>
 <script>
   function cpfChange(cpfValue) {
     var numeric = cpfValue.replace(/[^0-9]+/g, '');
@@ -64,4 +67,6 @@
     }
 }
 </script>
+
+
 {% endblock %}

@@ -80,6 +80,7 @@ def logout():
     session.pop('nome', None)
     session.pop('saldo', None)
     session.pop('email', None)
+    session.pop('pfp', None)
     session.pop('fatura', None)
     flash("Saida bem sucedida!", "info")
     return redirect('/login',code=302)
@@ -182,6 +183,8 @@ def profile_e():
     file.save((os.path.join(dir_root, secure_filename(file.filename))))
     file = os.path.join(dir_root, secure_filename(file.filename))
 
+    print('printado',nome)
+
     # upando img e apagando temp
     im = pyimgur.Imgur(clientid)
     upimg = im.upload_image(file)
@@ -195,6 +198,11 @@ def profile_e():
     session["email"] = sec['email']
     session["pfp"] = sec['pfp']
     session["senha"] = sec['senha']
+    flash("Dados alterados com sucesso!", "warning")
     return redirect("/profile", code=302)
 
+
+@page.route('/forgot', methods=['GET'])
+def forgot_c():
+    return render_template('forgot.html',)
 

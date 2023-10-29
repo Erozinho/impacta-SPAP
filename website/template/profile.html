@@ -49,10 +49,11 @@
 
       <input name="senha" id="senha" class="senha-perfil" type="password" minlength="8" placeholder="Senha">
 
-      <input class="salvar" type="submit" value="SALVAR">
-      <input class="cancel" type="submit" value="CANCELAR">
-
       <input type="file" id="file" name="file" />
+
+      <input class="salvar" type="submit" value="SALVAR">
+      <input class="cancel" type="button" value="CANCELAR">
+
       <br><br>
     </form>
 </div><br>
@@ -84,7 +85,7 @@ document.querySelector(".btn-edit").addEventListener("click", function(){
 });
 
 document.querySelector(".cancel").onclick = function () {
-        location.href = "http://127.0.0.1:5000/profile";
+        location.href = "/profile";
 };
 
 
