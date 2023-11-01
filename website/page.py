@@ -205,4 +205,3 @@ def profile_e():
 @page.route('/forgot', methods=['GET'])
 def forgot_c():
     return render_template('forgot.html',)
-
