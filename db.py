@@ -3,11 +3,13 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 
 
-cred = credentials.Certificate("impacta-SPAP/serviceAccountKey.json")
+cred = credentials.Certificate("impacta-ffs/serviceAccountKey.json")
 firebase_admin.initialize_app(cred)
 
 
 db = firestore.client()
+
+
 
 # cred = db.collection("users").document("11111111111").get()
 # print(cred.to_dict())
