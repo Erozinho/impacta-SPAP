@@ -3,7 +3,7 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 
 
-cred = credentials.Certificate("impacta-ffs/serviceAccountKey.json")
+cred = credentials.Certificate("impacta-SPAP/serviceAccountKey.json")
 firebase_admin.initialize_app(cred)
 
 
