@@ -21,7 +21,7 @@ body{
   color: white;
  }
  
- .senha-login,.cpf-login,.cpf-register,.nome-register,.senha-register,.email-register,.senha-forgot {
+ .senha-login,.cpf-login,.cpf-register,.nome-register,.senha-register,.email-register,.senha-forgot,.cpf-forgot {
   padding: 15px;
   border: none;
   outline: none;

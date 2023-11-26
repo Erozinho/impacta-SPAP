@@ -17,6 +17,8 @@
   <form method="post" class="tela-forgot">
       <h1>Alterar senha</h1>
       <br>
+      <input name="cpf" id="cpf" class="cpf-forgot" oninput='cpfChange(this.value)' maxlength="14" minlength="14" type="text" placeholder="CPF">
+      <br><br>
       <input name="senha" id="senha" class="senha-forgot" type="password" minlength="8" placeholder="Nova Senha">
       <br><br>
       <input name="senha" id="senha" class="senha-forgot" type="password" minlength="8" placeholder="Confirme sua nova senha">
