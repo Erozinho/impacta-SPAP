@@ -10,7 +10,7 @@ body{
   font-family: 'Trebuchet MS', sans-serif;
  }
  
- .tela-login,.tela-register {
+ .tela-login,.tela-register,.tela-forgot {
   background-color: rgba(0, 0, 0, 0.9);
   position: absolute;
   top: 50%;
@@ -21,14 +21,14 @@ body{
   color: white;
  }
  
- .senha-login,.cpf-login,.cpf-register,.nome-register,.senha-register,.email-register {
+ .senha-login,.cpf-login,.cpf-register,.nome-register,.senha-register,.email-register,.senha-forgot {
   padding: 15px;
   border: none;
   outline: none;
   font-size: 15px;
  }
 
- .btn-login,.btn-register {
+ .btn-login,.btn-register,.btn-forgot {
   background: linear-gradient(to left, rgb(0, 162, 255) 50%, lightblue 50%) right;
   border: none;
   padding: 15px;
@@ -40,7 +40,6 @@ body{
   background-size: 200%;
   transition: .5s ease-out;
  }
-
 
  .btn-login:hover,.btn-register:hover {
   background-position: left;
@@ -217,6 +216,22 @@ nav img{
 }
 
 .container-transferir{
+  background-color: white;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  margin: 10px 0;
+  margin-top: 30px;
+  margin-left: 400px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: start;
+  width: 400px;
+}
+
+.container-fatura{
   background-color: white;
   font-size: 24px;
   font-weight: bold;

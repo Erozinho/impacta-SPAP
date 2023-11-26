@@ -25,15 +25,15 @@
 </nav><br><br><br><br><br>
 
 <div class="body">
-    <form method="post" class="tela-fatura">
-        <h1 style="text-transform: uppercase;">FATURA</h1>
+    <form method="post" class="container-fatura">
 
         <p class="saldoa">Fatura Atual:</p> 
-
+        <br>
         <p class="saldo-t">{{ session['fatura'] }}</p>
+        <br>
 
         <input name="valor" id="valor" class="valor-transfer" type="number" placeholder="Valor a ser pago!">
-        <br><br>
+        <br>
 
         <input class="btn-transfer" type="submit" value="Realizar Operação" href="http//127.0.0.1:5000/home">
 

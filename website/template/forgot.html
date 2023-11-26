@@ -14,18 +14,14 @@
 {% endwith %}
 
 <div class="body">
-  <form method="post" class="tela-register">
-      <h1>TROCAR SENHA!</h1>
+  <form method="post" class="tela-forgot">
+      <h1>Alterar senha</h1>
+      <br>
+      <input name="senha" id="senha" class="senha-forgot" type="password" minlength="8" placeholder="Nova Senha">
       <br><br>
-      <input name="cpf" id="cpf" class="cpf-register" type="text" minlength="14" oninput='cpfChange(this.value)' maxlength="14" placeholder="CPF">
-      <br><br>
-      <input name="email" id="email" class="email-register" type="email" placeholder="EMAIL">
-      <br><br>
-      <input name="senha" id="senha" class="senha-register" type="password" minlength="8" placeholder="Nova Senha">
-      <br><br>
-      <input name="senha" id="senha" class="senha-register" type="password" minlength="8" placeholder="Confirme sua nova senha">
-      <br><br>
-      <input class="btn-register" type="submit" value="ALTERAR">
+      <input name="senha" id="senha" class="senha-forgot" type="password" minlength="8" placeholder="Confirme sua nova senha">
+      <br><br><br>
+      <input class="btn-forgot" type="submit" value="ALTERAR">
       <br><br>
       <a class="esquecer" href="/login">Já tem conta? Entre aqui!</a>
   </form>
