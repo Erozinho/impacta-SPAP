@@ -176,7 +176,6 @@ def profile_c():
 
 @page.route('/profile', methods=['POST'])
 def profile_e():
-
     # pega os edit do primo
     nome = request.form.get('nome')
     file = request.files['file']
@@ -205,3 +204,21 @@ def profile_e():
 @page.route('/forgot', methods=['GET'])
 def forgot_c():
     return render_template('forgot.html',)
+
+
+@page.route('/forgot', methods=['POST'])
+def forgot():
+    cpf = request.form.get('cpf')
+    cpf = cpf.replace(".","").replace("-","")
+    senha = request.form.get('senha')
+
+    doc_ref = db.collection('users').document(cpf)
+    doc = doc_ref.get()
+
+    if doc.exists:
+        db.collection("users").document(cpf).update({"senha": senha})
+        flash("Senha alterada com sucesso!", "warning")
+        return redirect("/login", code=302)
+    else:
+        flash("CPF NÃO ENCONTRADO!", "warning")
+        return redirect("/forgot", code=302)
