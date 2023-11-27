@@ -178,6 +178,16 @@ def profile_c():
 def profile_e():
     # pega os edit do primo
     nome = request.form.get('nome')
+    if nome != "":
+        db.collection("users").document(session['cpf']).update({"nome": nome})
+
+    email = request.form.get('email')
+    if email != "":
+        db.collection("users").document(session['cpf']).update({"email": email})
+    passw = request.form.get('senha')
+    if passw != "":
+        db.collection("users").document(session['cpf']).update({"senha": passw})
+    
     file = request.files['file']
     file.save((os.path.join(dir_root, secure_filename(file.filename))))
     file = os.path.join(dir_root, secure_filename(file.filename))
