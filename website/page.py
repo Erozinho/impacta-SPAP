@@ -83,7 +83,7 @@ def logout():
     session.pop('pfp', None)
     session.pop('fatura', None)
     flash("Saida bem sucedida!", "info")
-    return redirect('/login',code=302)
+    return redirect('/login', code=302)
 
 
 @page.route('/home', methods=['GET'])
@@ -108,27 +108,27 @@ def carregar_t():
 def transferir():
     cpf = request.form.get('cpf')
     print(cpf)
-    cpf = cpf.replace(".","").replace("-","")
+    cpf = cpf.replace(".", "").replace("-", "")
     valor = float(request.form.get('valor'))
 
     doc_ref = db.collection('users').document(cpf).get()
     if doc_ref.exists:
-        conta_alvo = db.collection("contas").document(cpf).get() # pega as informações da conta(saldo e afins)
+        conta_alvo = db.collection("contas").document(cpf).get()  # pega as informações da conta(saldo e afins)
         ca_conta = conta_alvo.to_dict()
-        conta_alvo = db.collection("users").document(cpf).get() # pega as informações de usuario(cpf e nome)
+        conta_alvo = db.collection("users").document(cpf).get()  # pega as informações de usuario(cpf e nome)
         ca_info = conta_alvo.to_dict()
 
         valor_total = float(session['saldo'])
 
         if valor_total < valor:
             flash("Saldo insucificente", "warning")
-            return redirect("/transfer", code=302) 
-            
+            return redirect("/transfer", code=302)
+
         db.collection("contas").document(ca_info['cpf']).update({"saldo": ca_conta['saldo']+valor})
         db.collection("contas").document(session['cpf']).update({"saldo": float(session['saldo']) - valor})
 
         session["saldo"] = valor_total - valor
-            
+
         flash("Transferencia realizada com sucesso!", "warning")
         return redirect("/home", code=302)
 
